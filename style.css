@@ -1,0 +1,283 @@
+/* =============================================
+   TaskFlow - Modern To-Do List CSS
+   ============================================= */
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(20, 18, 39, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px 32px 32px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, #a855f7, #d946ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+header p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+/* Add Task Section */
+.add-task {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 12px;
+}
+
+.add-task input {
+  flex: 1;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: #f8fafc;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.add-task input::placeholder {
+  color: #64748b;
+}
+
+.add-task input:focus {
+  border-color: #a855f7;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.add-task button {
+  padding: 0 24px;
+  background: linear-gradient(135deg, #a855f7, #d946ef);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.add-task button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.3);
+}
+
+.add-task button:active {
+  transform: translateY(1px);
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+}
+
+.task-list li {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.task-list li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(4px);
+}
+
+.task-list li.completed {
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.task-list li.completed .task-text {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.task-list li.completed .task-icon {
+  color: #a855f7;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 0.9375rem;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.task-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #64748b;
+  transition: color 0.2s;
+}
+
+/* Checkbox Styling */
+.checkbox {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 2px solid #64748b;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.checkbox.checked {
+  background: linear-gradient(135deg, #a855f7, #d946ef);
+  border-color: #a855f7;
+}
+
+.checkbox.checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Delete Button */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+}
+
+.empty-state svg {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-size: 1.125rem;
+  margin-bottom: 4px;
+}
+
+.empty-state p {
+  font-size: 0.875rem;
+}
+
+/* Stats & Progress */
+footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.stats span:first-child {
+  color: #94a3b8;
+}
+
+.stats span:last-child {
+  color: #a855f7;
+  font-weight: 500;
+}
+
+#progressBar {
+  width: 120px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#progressBar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #a855f7, #d946ef);
+  width: 0%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    margin: 16px;
+    padding: 32px 24px 24px;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .add-task {
+    flex-direction: column;
+  }
+  
+  .add-task button {
+    width: 100%;
+    margin-top: 8px;
+  }
+}
